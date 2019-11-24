@@ -1,0 +1,25 @@
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+\tikzstyle{startstop} = [rectangle, rounded corners, minimum width=4cm, minimum height=1.3cm,text centered, draw=black, fill=red!30]
+\tikzstyle{process} = [rectangle, minimum width=4cm, minimum height=1.3cm, text centered, draw=black, fill=orange!30]
+\tikzstyle{decision} = [diamond, minimum width=4cm, minimum height=1.3cm, text centered, draw=black, fill=green!30]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+\tikzstyle{dfdprocess} = [circle,draw=black, inner sep=0pt,minimum size=3cm, fill=red!30, text width=3cm, text centered]
+\tikzstyle{dfdentity} = [rectangle, rounded corners, minimum width=3cm, minimum height=1.2cm,text centered, draw=black, fill=red!30]
+\tikzset{data store/.style={
+        draw=none,
+        minimum width=4.5cm,
+        minimum height=1.2cm,
+        fill=red!30,
+        append after command={
+            [shorten <= -0.5\pgflinewidth]
+            ([shift={(-1.5\pgflinewidth,-0.5\pgflinewidth)}]\tikzlastnode.north east)
+        edge([shift={( 0.5\pgflinewidth,-0.5\pgflinewidth)}]\tikzlastnode.north west) 
+            ([shift={( 0.5\pgflinewidth,-0.5\pgflinewidth)}]\tikzlastnode.north west)
+        edge([shift={( 0.5\pgflinewidth,+0.5\pgflinewidth)}]\tikzlastnode.south west)            
+            ([shift={( 0.5\pgflinewidth,+0.5\pgflinewidth)}]\tikzlastnode.south west)
+        edge([shift={(-1.0\pgflinewidth,+0.5\pgflinewidth)}]\tikzlastnode.south east)
+        }
+    }
+}
