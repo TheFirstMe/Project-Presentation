@@ -1,4 +1,5 @@
 \usepackage{tikz}
+\usepackage{pgfgantt}
 \usetikzlibrary{shapes.geometric, arrows}
 \tikzstyle{startstop} = [rectangle, rounded corners, minimum width=4cm, minimum height=1.3cm,text centered, draw=black, fill=red!30]
 \tikzstyle{process} = [rectangle, minimum width=4cm, minimum height=1.3cm, text centered, draw=black, fill=orange!30]
@@ -17,3 +18,7 @@
         \endpgfextra}
     }
 }
+
+\ganttset{group/.append style={orange},
+milestone/.append style={red},
+progress label node anchor/.append style={text=red}}
