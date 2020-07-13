@@ -1,14 +1,35 @@
-\section{Functional Requirements}
+\section{System Architecture}
+% \subsection{Use Case Diagram}
 \begin{frame}
-\frametitle{Functional Requirements}
-\begin{itemize}
-    \item The system must provide the teachers with a GUI to
-    upload answer paper and the answer key.
-    \item The system must convert the handwritten text in 
-    answer scripts to digital text.
-    \item The system must separate answers from the recognized
-    text and map them to each question.
-    \item The system must perform answer paper evaluation
-    based on the digital text extracted and the answer key.
-\end{itemize}
+    \frametitle{System Architecture}
+    \begin{figure}[!h]
+        \centering
+        \includegraphics[scale=0.6]{images/arch.pdf}
+        % \caption{}
+        % \label{}
+    \end{figure}
+\end{frame}
+
+
+\subsection{Handwritten Text Recognition Module}
+\begin{frame}
+    \frametitle{HTR Model}
+    \begin{figure}[!h]
+        \centering
+        \includegraphics[scale=0.35]{images/htr.png}
+        % \caption{}
+        % \label{}
+    \end{figure}
+\end{frame}
+
+
+\subsection{Classifier Architecture}
+\begin{frame}
+    \frametitle{Classifier Architecture}
+    \begin{figure}[!h]
+        \centering
+        \includegraphics[scale=0.6]{images/clas.png}
+        % \caption{}
+        % \label{}
+    \end{figure}
 \end{frame}

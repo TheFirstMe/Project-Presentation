@@ -1,64 +1,82 @@
-\section{Work Plan - Gantt Chart}
-\begin{frame}
-    \frametitle{Work Plan - Gantt Chart}
-    \noindent\resizebox{\textwidth}{!}{
+\section{Results}
 
-    \begin{ganttchart}[%Specs
-        x unit = 2cm,  %<---------------------- New x unit 
-        y unit title=0.8cm,
-        y unit chart=1cm,
-        vgrid, hgrid,
-        title height=1,
-    %     title/.style={fill=none},
-        title label font=\bfseries\footnotesize,
-        bar/.style={fill=green},
-        bar height=0.5,
-        bar left shift=0.05,
-        bar right shift=-0.05,
-        progress label text={},
-        group right shift=0,
-        group top shift=0.7,
-        group height=.3,
-        group peaks width={0.2},
-        inline]{1}{7}
-       %labels
+\begin{frame}
+    \frametitle{Results}
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[scale=0.3]{images/login.png}
+        \caption{Login Page}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Results}
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[scale=0.4]{images/upload.png}
+        \caption{Upload Page}
+    \end{figure}
+
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Results}
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[scale=0.3]{images/result.png}
+        \caption{Result Page}
+    \end{figure}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Results}
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[scale=0.3]{images/1.png}
+        \caption{Input image}
+        \label{inp1}
+    \end{figure}
+
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[scale=0.3]{images/2.png}
+        \caption{Input image after horizontal lines are removed}
+        \label{inp2}
+    \end{figure}
+\end{frame}
+\begin{frame}
+    \frametitle{Results}
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[scale=0.3]{images/3.png}
+        \caption{Input image after line segmentation}
+        \label{inp3}
+    \end{figure}
+
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[scale=0.35]{images/predict.png}
+        \caption{Prediction with and without correction}
+        \label{predict}
+    \end{figure}
+\end{frame}
+\begin{frame}
+    \frametitle{Results}
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[scale=0.35]{images/nlp-1.png}
+        \caption{Semantic analaysis from HTR result}
+        \label{nlp1}
+    \end{figure}
+
+    \begin{figure}[!htb]
+        \centering
+        \includegraphics[scale=0.35]{images/nlp-2.png}
+        \caption{A false positive evaluation}
+        \label{nlp2}
+    \end{figure}
     
-       \gantttitle{2019}{3}
-       \gantttitle{2020}{4} \\                 % title 
-       \gantttitle{October}{1}                      % title 3
-       \gantttitle{November}{1}
-       \gantttitle{December}{1}
-       \gantttitle{January}{1}
-       \gantttitle{February}{1}
-       \gantttitle{March}{1}
-       \gantttitle{April}{1}\\
-    
-       % Setting group if any
-    
-    %    \ganttgroup[inline=false]{Group 1}{1}{5}\\ 
-    
-       \ganttbar[inline=false]{Literature Survey}{1}{2}\\
-       \ganttbar[progress=0,inline=false]{Create and train RNN model}{3}{4}\\       
-       \ganttbar[progress=0,inline=false]{Separate answers and map to answer key}{4}{4}\\
-       \ganttbar[progress=0,inline=false]{Create NLP Model}{4}{5}\\
-       \ganttbar[progress=0,inline=false]{Test Primary System}{6}{6}\\
-       \ganttbar[progress=0,inline=false]{Evaluation of performance}{7}{7}
-    %    \ganttmilestone[inline=false]{Milestone 1}{9} \\
-    
-    %    \ganttgroup[inline=false]{Group 2}{2}{10} \\
-    
-    %    \ganttbar[progress=2,inline=false]{Test 1}{6}{9} \\
-    %    \ganttmilestone[inline=false]{Milestone 2}{7} \\
-    %    \ganttbar[progress=5,inline=false]{Test 2}{1}{2} \\
-    %    \ganttmilestone[inline=false]{Milestone 3}{10} \\       
-    
-    %    \ganttgroup[inline=false]{Group 3}{3}{8} \\ 
-    
-    %    \ganttbar[progress=90,inline=false]{Task A}{3}{5} \\ 
-    %    \ganttbar[progress=50,inline=false, bar progress label node/.append style={below left= 10pt and 7pt}]{Task B}{3}{4} \\ \\
-    %    \ganttbar[progress=30,inline=false]{Task C}{5}{6}\\ 
-    %    \ganttbar[progress=70,inline=false]{Task D}{8}{10} \\ 
-    
-    \end{ganttchart}
-    }
 \end{frame}

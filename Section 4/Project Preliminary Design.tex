@@ -1,20 +1,20 @@
-\section{Project Preliminary Design}
+\section{System Design}
 
-\subsection{Flow Charts}
+\subsection{Flow Chart}
 \begin{frame}
-    \frametitle{Flow Charts}
+    \frametitle{Flow Chart}
     \begin{figure}[!h]
         \centering
         \begin{tikzpicture}[node distance=2.5cm,thick,scale=0.55, every node/.style={scale=0.55}]
             \node (start) [startstop] {Start};
-            \node (pro1) [process, below of=start, text width=\textwidth-8.5cm] {Upload answer paper \& answer key};
+            \node (pro1) [process, below of=start, text width=\textwidth-8.5cm] {Upload answer paper \& model answers};
             \node (pro2) [process, below of=pro1] {Extract student details};
             \node (dec1) [decision, right of=pro2, xshift=3cm] {Student exists?};
             \node (pro3) [process, right of=dec1, xshift=3cm] {Extract answers};
             \node (pro4) [process, text width=\textwidth-8.5cm, below of=pro3, yshift=-1cm] {Map answers to answer keys};
             \node (pro5) [process, right of=pro4, xshift=3cm] {Evaluate answers};
-            \node (pro6) [process, above of=pro5, yshift=1cm] {Generate report};
-            \node (pro7) [process, above of=pro6] {Send report to student};
+            \node (pro6) [process, above of=pro5, yshift=1cm] {Generate results};
+            \node (pro7) [process, above of=pro6] {Send results to student};
             \node (end) [startstop, above of=pro7] {End};
             \node (error) [process, left of=end, xshift=-3cm] {Error};
 
@@ -39,43 +39,56 @@
 
 \begin{frame}
     \frametitle{Data Flow Diagram - Level 0}
-        \begin{figure}[!h]
-            \centering
-            \begin{tikzpicture}[node distance=3cm,thick,scale=0.7, every node/.style={scale=0.7}]
+    \begin{figure}[!htb]
+        \centering
+        \noindent\resizebox{\textwidth}{!}{
+            \begin{tikzpicture}[->,>=stealth',auto,node distance=3cm,thick]
                 \node (proc1) [dfdprocess] {Answer paper evaluation};
                 \node (teacher) [dfdentity, left of=proc1, xshift=-3cm] {Teacher};
                 \node (student) [dfdentity, right of=proc1, xshift=3cm] {Student};
-
-                \draw [arrow] (teacher) -- node[anchor=south] {Answer paper} (proc1);
+    
+                % \draw [arrow] (teacher) -- node[anchor=south, text width=3.9cm, text centered] {Answer paper \& Answer key} (proc1);
                 \draw [arrow] (proc1) -- node[anchor=south] {Result} (student);
+    
+                \path
+                (teacher) edge[bend right] node [text centered, anchor=north] {Answer paper} (proc1);
+                \path
+                (teacher) edge[bend left] node [text centered] {Model Answers} (proc1);
             \end{tikzpicture}
-            % \caption{}
-            % \label{}
-        \end{figure}
+        }
+        \vspace{0.5cm}
+        \caption{Data Flow Diagram Level 0}
+        \label{fig:dfd-0}
+    \end{figure}
 \end{frame}
 
 \subsection{Data Flow Diagram - Level 1}
 
 \begin{frame}
     \frametitle{Data Flow Diagram - Level 1}
-        \begin{figure}[!h]
-            \centering
-            \begin{tikzpicture}[node distance=3cm,thick,scale=0.7, every node/.style={scale=0.7}]
+    \begin{figure}[!ht]
+        % \hspace{-1cm}
+        \centering
+        \noindent\resizebox{\textwidth}{!}{
+            \begin{tikzpicture}[node distance=3cm,thick]
                 \node (proc1) [dfdprocess] {Handwriting recognition};
                 \node (teacher) [dfdentity, left of=proc1, xshift=-3cm] {Teacher};
-                \node (proc2) [dfdprocess, below of=teacher, yshift=-2cm] {Question to Answer key mapping};
+                \node (proc2) [dfdprocess, below of=teacher, yshift=-2cm] {Text Preprocessing};
                 \node (proc3) [dfdprocess, right of=proc2, xshift=3cm] {Semantic evaluation};
-                \node (result) [data store, right of=proc1, xshift=3cm] {Generate result};
-                \node (student) [dfdentity, right of=proc3, xshift=3cm] {Student};
-
+                \node (result) [data store, right of=proc1, xshift=4cm] {Generate result};
+                \node (student) [dfdentity, right of=proc3, xshift=4cm] {Student};
+    
                 \draw [arrow] (teacher) -- node[anchor=south] {Answer paper} (proc1);
-                \draw [arrow] (teacher) -- node[rotate=-90, anchor=south] {Answer key} (proc2);
+                \draw [arrow] (teacher) -- node[rotate=-90, anchor=south] {Model Answer} (proc2);
                 \draw[arrow] (proc1) -- node[rotate=40, anchor=south] {Answers} (proc2);
                 \draw[arrow] (proc2) -- node[anchor=south] {Answers} (proc3);
-                \draw[arrow] (proc3) -- node[rotate=40,anchor=south] {Evaluated Answers} (result);
+                \draw[arrow] (proc3) -- node[rotate=36,anchor=south] {Evaluated Answers} (result);
                 \draw[arrow] (result) -- node[rotate=-90, anchor=south] {Result} (student);
+                \draw[arrow] (proc1) -- node[anchor=south] {Student details} (result);
             \end{tikzpicture}
-            % \caption{}
-            % \label{}
-        \end{figure}
+        }
+        \vspace{0.5cm}
+        \caption{Data Flow Diagram Level 1}
+        \label{fig:dfd-1}
+    \end{figure}
 \end{frame}
